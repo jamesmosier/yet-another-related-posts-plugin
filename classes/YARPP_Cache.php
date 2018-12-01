@@ -462,10 +462,12 @@ abstract class YARPP_Cache {
 
 		// Sort
 		if ( !isset( $merged_filters[ $tag ] ) ) {
+			// james revert commit
+			ksort($wp_filter[$tag]);
 			//let's stop getting a php warning here, ok?
-			(is_object( $wp_filter[$tag] ) ) ?
-				ksort( get_object_vars( $wp_filter[$tag] ) )
-				: ksort($wp_filter[$tag]);
+			// (is_object( $wp_filter[$tag] ) ) ?
+			//	ksort( get_object_vars( $wp_filter[$tag] ) )
+			//	: ksort($wp_filter[$tag]);
 
 			$merged_filters[ $tag ] = true;
 		}
